@@ -1,2 +1,2 @@
 # dsp-project
-Audio steganography
+Audio steganography project for Signal Processing class
