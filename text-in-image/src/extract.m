@@ -23,7 +23,7 @@ function [text] = extract(emb_image)
     HL_flat = reshape(HL.', 1, []);
 
     % store the number of chars as the first `size_length` bytes
-    size_length = 2;
+    size_length = 4;
     char_count = bi2de(HH_flat(1:size_length * 8));
 
     bin_text = zeros(char_count, 8);

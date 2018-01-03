@@ -22,15 +22,16 @@ function [ ] = embed( key, input_wav_file, input_image_file, output_wav_file)
         % get current image byte
         image_byte = de2bi(image_flatten(b), 8);
 
-        % encode current image byte bit-by-bit into 8 wav bytes
-        for i = 1:8
+        % encode current image byte bit-by-bit
+        for i = 1:4
             idx = (8*(b-1)) + 1 + 2 + i;
 
-            % get current wav byte
+            % get current wav 2-byte chunk
             wav_byte = de2bi(emb_wav_data(idx), 16);
 
             % lsb encoding
-            wav_byte(1) = image_byte(i);
+            wav_byte(1) = image_byte(2*(i-1) + 1);
+            wav_byte(9) = image_byte(2 * i);
 
             emb_wav_data(idx) = bi2de(wav_byte);
         end
