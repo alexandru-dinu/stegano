@@ -1,18 +1,10 @@
-clear;
-clc;
+clear; clc;
 
-% load image data
-image = imread('../img/img1-smaller.png');
-[height, width] = size(image);
-image_flatten = reshape(image.', 1, []);
+input_image = '../img/lena-eye-gs.png';
+input_audio = '../audio/drum-loop.wav';
+output_audio = '../audio/emb-drum-loop.wav';
 
-% load wav data
-[wav_header, wav_len, wav_data] = read_wav('../sound/drum-loop.wav');
+embed(0, input_audio, input_image, output_audio);
+image = extract(0, output_audio);
 
-enc_wav_data = encrypt(0, wav_data, image);
-
-write_wav(wav_header, wav_len, enc_wav_data, '../sound/drum-loop-enc.wav');
-
-img = decrypt(0, enc_wav_data, height, width);
-
-imshow(img);
+imshow(image);
