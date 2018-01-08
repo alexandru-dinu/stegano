@@ -5,13 +5,13 @@ function [ ] = embed(input_image_path, input_text_path, output_image_path)
     image = imread(input_image_path);
 
     % display input image
-    figure
-    imshow(image);
-    title('original image');
+%     figure
+%     imshow(image);
+%     title('original image');
 
     % read text (secret to be sent)
     % each char is 8-bits long
-    fid = fopen(input_text_path, 'rb');
+    fid = fopen(input_text_path, 'rt');
     text = fread(fid, inf, 'uint8');
     bin_text = de2bi(text, 8);
 
@@ -77,7 +77,7 @@ function [ ] = embed(input_image_path, input_text_path, output_image_path)
     out_image = ycbcr2rgb(image_ycbcr);
     imwrite(out_image, output_image_path);
 
-    figure
-    imshow(out_image);
-    title('stegano image');
+%     figure
+%     imshow(out_image);
+%     title('stegano image');
 end
