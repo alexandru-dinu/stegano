@@ -1,4 +1,4 @@
-# dsp-project
+# Stegano
 Audio Steganography project for Signal Processing class
 
 For this project, two main methods of concealing a secret in a carrier data were implemented:
