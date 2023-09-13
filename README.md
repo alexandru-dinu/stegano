@@ -1,6 +1,6 @@
 # Stegano
 
-Audio Steganography project for Signal Processing class
+Steganography project for Signal Processing class
 
 Two main methods of concealing a secret in a carrier data were implemented:
 
